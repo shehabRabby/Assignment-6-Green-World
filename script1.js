@@ -56,7 +56,7 @@ const displayPlants = (plant) => {
              <p class="text-[11px] text-start font-light flex-grow overflow-hidden line-clamp-3">${tree.description}</p> 
              <div class="flex justify-between items-center my-4">
                  <button class="bg-green-100 border-green-500 border-1 px-2 py-1 lg:py-0 xl:p-1 text-[12px]  w-auto rounded-full cursor-pointer hover:scale-102">${tree.category}</button>
-                 <p class="font-semibold">$<span class="tree-price">${tree.price}</span></p>
+                 <p class="font-semibold">$<span class="tree-price text-green-900">${tree.price}</span></p>
              </div>
              <button onclick="addtoCart(this)" class="bg-green-900 text-white px-4 w-full rounded-full py-1  cursor-pointer hover:scale-101 hover:bg-green-700">Add to Cart</button>
              </div>
