@@ -77,27 +77,32 @@
 
           <!-- plant cart section -->
           <section class="lg:col-span-9 h-full">
-            <div id="cart-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 p-1">
+
+            <!-- Loading Spinner  -->
+            <div id="loading-spinner" class="hidden min-h-[6vh] flex flex-col justify-center items-center mt-10">
+              <span class="loading loading-spinner text-neutral"></span>
+            </div>
+
+
+            <div id="cart-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 p-1">
                 <!-- cart -->
             </div>
           </section>
 
           <!-- your cart section-->
           <section class="lg:col-span-3 h-full border1">
-            <div class="col-span-3 h-full bg-white rounded-lg p-2 px-4">
+            <div class="col-span-3 h-full bg-white rounded-lg p-2 px-4 space-y-1">
                 <h1 class="text-lg font-medium text-center mb-4">Your Cart</h1>
                 <!-- cart items  -->
-                <div class="flex justify-between items-center p-2 px-4 bg-green-100 rounded-xl">
-                    <div>
-                        <p class="text-base font-medium">Mango tree</p>
-                        <p class="text-sm">$<span >500</span> x <span>1</span></p>
-                    </div>
-                    <p>X</p>
+                <div id="my-cart" class="space-y-1">
+
                 </div>
+
+                
                 <hr class="my-2">
                 <div class="flex justify-between items-center">
                     <p>Total : </p>
-                    <p>$<span>500</span></p>
+                    <p>$<span id="total-amount">0</span></p>
                 </div>
             </div>
           </section>
@@ -105,8 +110,11 @@
         </section>
         <!-- plant cart end here -->
 
-       <!-- modal start here -->
-          <dialog id="my_modal_3" class="modal">
+
+
+
+        <!-- modal start here -->
+        <dialog id="my_modal_3" class="modal">
             <div class="modal-box">
               <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -117,10 +125,8 @@
                     </div>
                </div>
             </div>
-          </dialog>
-       <!-- modal start here -->
-
-
+        </dialog>
+        <!-- modal start here -->
         
         <!-- The Campaign Start here -->
         <section class="bg-[#F0FDF4]">
@@ -166,9 +172,6 @@
             </div>  
          </section>
          <!-- Our Impact End here-->
-         
-
-
 
          <!-- plant a tree start here -->
         <section>
