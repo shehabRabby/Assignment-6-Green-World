@@ -48,15 +48,16 @@ const displayPlants = (plant) => {
   // "category": "Flowering Tree",
   // "price": 400
   // }
+ 
 
   for (let tree of plant) {
     const cartPlant = document.createElement("div");
     cartPlant.innerHTML = `
-        <div class="bg-white p-2 h-126 md:h-120 rounded-lg shadow">
+        <div class="bg-white p-2 h-120 rounded-lg shadow">
              <img src="${tree.image}" alt="" class="w-full h-1/2 bg-cover rounded-lg shadow" >
              <div class="py-2 px-4">
              <p onclick="loadPlantDetails(${tree.id})" class="text-lg font-semibold my-2">${tree.name}</p>
-             <p class="text-sm font-light h-20 md:h-22 lg:h-23">${tree.description}</p>
+             <p class="text-[11px] text-start font-light h-20">${tree.description}</p> 
              <div class="flex justify-between items-center my-4">
                  <button class="bg-green-100 border-green-500 border-1 px-2  w-auto rounded-full cursor-pointer hover:scale-102">${tree.category}</button>
                  <p class="font-semibold">$<span>${tree.price}</span></p>
@@ -98,12 +99,12 @@ const loadPlantDetails = (id) => {
 const displayDetails = (trees) => {
   const plantDetails = document.getElementById("plant-details-container");
   plantDetails.innerHTML=`
-                    <div  class="bg-white p-3 h-110 md:h-105 w-auto rounded-lg shadow mt-4 space-y-1">
+                    <div  class="bg-white p-3 h-115 md:h-105 w-auto rounded-lg shadow mt-4 space-y-1">
                        <h1 class="font-bold">${trees.name}</h1>
                        <img src="${trees.image}" alt="" class="w-full h-1/2 bg-cover rounded-lg shadow mb-4">
-                       <p class="text-base font-semibold">Category: <span class="text-sm font-light">${trees.category}</span></p>
-                       <p class="text-base font-semibold">Price: <span class="text-sm font-light">$</span><span class="text-sm font-light">${trees.price}</span></p>
-                       <p class="text-base font-semibold">Description: <span class="text-sm font-light">${trees.description}</p>
+                       <p class="text-sm font-semibold">Category: <span class="text-sm font-light">${trees.category}</span></p>
+                       <p class="text-sm font-semibold">Price: <span class="text-sm font-light">$</span><span class="text-sm font-light">${trees.price}</span></p>
+                       <p class="text-sm font-semibold">Description: <span class="text-[13px] font-light">${trees.description}</p>
                     </div>
 
   `;
