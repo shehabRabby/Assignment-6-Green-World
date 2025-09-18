@@ -49,13 +49,13 @@ const displayPlants = (plant) => {
   for (let tree of plant) {
     const cartPlant = document.createElement("div");
     cartPlant.innerHTML = `
-        <div class="bg-white p-2 h-120 rounded-lg shadow">
+        <div class="bg-white p-2 h-120 rounded-lg shadow flex flex-col">
              <img src="${tree.image}" alt="" class="w-full h-1/2 bg-cover rounded-lg shadow" >
-             <div class="py-2 px-4">
+             <div class="py-2 px-4 flex flex-col flex-grow">
              <p onclick="loadPlantDetails(${tree.id})" class="text-lg font-semibold my-2 plant-name">${tree.name}</p>
-             <p class="text-[11px] text-start font-light h-20">${tree.description}</p> 
+             <p class="text-[11px] text-start font-light flex-grow overflow-hidden line-clamp-3">${tree.description}</p> 
              <div class="flex justify-between items-center my-4">
-                 <button class="bg-green-100 border-green-500 border-1 px-2 py-1 lg:py-0 w-auto rounded-full cursor-pointer hover:scale-102">${tree.category}</button>
+                 <button class="bg-green-100 border-green-500 border-1 px-2 py-1 lg:py-0 xl:p-1 text-[12px]  w-auto rounded-full cursor-pointer hover:scale-102">${tree.category}</button>
                  <p class="font-semibold">$<span class="tree-price">${tree.price}</span></p>
              </div>
              <button onclick="addtoCart(this)" class="bg-green-900 text-white px-4 w-full rounded-full py-1  cursor-pointer hover:scale-101 hover:bg-green-700">Add to Cart</button>
