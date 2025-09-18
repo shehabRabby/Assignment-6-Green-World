@@ -52,15 +52,17 @@ const displayPlants = (plant) => {
   for (let tree of plant) {
     const cartPlant = document.createElement("div");
     cartPlant.innerHTML = `
-        <div class="bg-white p-2 h-105 rounded-lg shadow">
+        <div class="bg-white p-2 h-126 md:h-120 rounded-lg shadow">
              <img src="${tree.image}" alt="" class="w-full h-1/2 bg-cover rounded-lg shadow" >
-             <p class="text-lg font-semibold my-2">${tree.name}</p>
-             <p class="text-sm font-light">${tree.description}</p>
-             <div class="flex justify-between items-center my-3">
-                 <button class="bg-green-200 px-2 w-auto rounded-full cursor-pointer">${tree.category}</button>
+             <div class="py-2 px-4">
+             <p onclick="loadPlantDetails(${tree.id})" class="text-lg font-semibold my-2">${tree.name}</p>
+             <p class="text-sm font-light h-20 md:h-22 lg:h-23">${tree.description}</p>
+             <div class="flex justify-between items-center my-4">
+                 <button class="bg-green-100 border-green-500 border-1 px-2  w-auto rounded-full cursor-pointer hover:scale-102">${tree.category}</button>
                  <p class="font-semibold">$<span>${tree.price}</span></p>
              </div>
-             <button class="bg-green-900 text-white px-4 w-full rounded-full py-1 cursor-pointer">Add to Cart</button>
+             <button class="bg-green-900 text-white px-4 w-full rounded-full py-1  cursor-pointer hover:scale-101 hover:bg-green-700">Add to Cart</button>
+             </div>
          </div>`;
          
     cartConainer.append(cartPlant);
@@ -76,6 +78,37 @@ const loadAllPlants = () => {
     .then((data) => displayPlants(data.plants));
 };
 
+
+const loadPlantDetails = (id) => {
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayDetails(data.plants));
+}
+
+
+//  {
+// "id": 1,
+// "image": "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg",
+// "name": "Mango Tree",
+// "description": "A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals.",
+// "category": "Fruit Tree",
+// "price": 500
+// }
+const displayDetails = (trees) => {
+  const plantDetails = document.getElementById("plant-details-container");
+  plantDetails.innerHTML=`
+                    <div  class="bg-white p-3 h-110 md:h-105 w-auto rounded-lg shadow mt-4 space-y-1">
+                       <h1 class="font-bold">${trees.name}</h1>
+                       <img src="${trees.image}" alt="" class="w-full h-1/2 bg-cover rounded-lg shadow mb-4">
+                       <p class="text-base font-semibold">Category: <span class="text-sm font-light">${trees.category}</span></p>
+                       <p class="text-base font-semibold">Price: <span class="text-sm font-light">$</span><span class="text-sm font-light">${trees.price}</span></p>
+                       <p class="text-base font-semibold">Description: <span class="text-sm font-light">${trees.description}</p>
+                    </div>
+
+  `;
+  document.getElementById("my_modal_3").showModal();
+}
 
 loadCategory();
 loadAllPlants();

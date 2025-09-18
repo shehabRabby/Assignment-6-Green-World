@@ -65,53 +65,19 @@
 
 
     <main>
-
-       <!-- <section>
-          <h1 class="text-2xl md:text-3xl font-normal text-center py-6 mt-1 mb-5">Choose Your Trees</h1>
-           <div class="grid grid-cols-1 lg:grid-cols-6 gap-6 px-4 md:px-8 py-6">
-               
-               
-                <div>
-                  
-                  <h1 class="text-xl font-medium mb-4 ">Categories</h1>
-                   <button class="btn w-full md:w-auto mt-2 px-4 py-2 text-gray-700 transition-all duration-300 ease-in-out hover:bg-[#15803D] hover:text-white hover:scale-105 cursor-pointer">All Trees</button>
-                   <div id="categories-container" class="p-2 space-y-3">
-                   </div>
-                </div>
-
-
-               
-                <div class="lg:col-span-4">
-                    <div id="card-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 bg-white p-5 rounded-xl shadow-sm">
-                    </div>
-                </div>
-    
-    
-               
-                <div class="bg-white p-4 rounded-xl space-y-4">
-                   
-                   <h1 class="text-lg font-medium">Your Cart</h1>
-                    
-                   <div class="space-y-2" id="cart_container"></div>
-                </div>
-           </div>
-       </section> -->
-
-
-        <section class="w-11/12 mx-auto  grid grid-cols-1 lg:grid-cols-15 gap-8 h-full border-1 my-10">
+        <!-- plant cart start here -->
+        <section class="w-11/12 mx-auto  grid grid-cols-1 lg:grid-cols-15 gap-8 h-full my-8">
             
           <!-- category button section  -->
-          <section class="lg:col-span-3 h-full rounded-lg p-2">
-            <h1 class="text-xl font-semibold mb-4 text-start">Categories</h1>
+          <section class="lg:col-span-3 h-full rounded-lg p-1">
+            <h1 class="text-xl font-semibold mb-2 text-start">Categories</h1>
             <div id="categories-container" class="sticky top-0 grid grid-cols-1 p-0 md:p-3 space-y-1">
             </div>
           </section>
 
-
-
           <!-- plant cart section -->
           <section class="lg:col-span-9 h-full">
-            <div id="cart-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 p-1">
+            <div id="cart-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 p-1">
                 <!-- cart -->
             </div>
           </section>
@@ -137,8 +103,25 @@
           </section>
 
         </section>
+        <!-- plant cart end here -->
+
+       <!-- modal start here -->
+          <dialog id="my_modal_3" class="modal">
+            <div class="modal-box">
+              <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+              </form>
+               <div id="plant-details-container">
+                    <div  class="bg-white p-3 h-105 w-auto rounded-lg shadow mt-4 space-y-1">
+                       
+                    </div>
+               </div>
+            </div>
+          </dialog>
+       <!-- modal start here -->
 
 
+        
         <!-- The Campaign Start here -->
         <section class="bg-[#F0FDF4]">
             <section>
@@ -167,22 +150,23 @@
                 <h2 class="flex flex-col items-center py-5 font-bold text-xl mt-5">Our Impact</h2>
             </div>
                
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 px-5 sm:px-10 md:px-12">
-                <div class="text-center p-10 rounded-md bg-white shadow-sm">
-                  <h1 class="text-xl font-bold text-green-800"><span>500K+</span></h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 px-5 sm:px-10 md:px-12 ">
+                <div class="text-center p-10 rounded-md bg-white shadow-sm transition:all duration-300 ease-in-out hover:bg-[#49e883d3]  hover:scale-105 cursor-pointer">
+                  <h1 class="text-xl font-bold text-green-800 "><span>500K+</span></h1>
                   <p class="text-gray-400 text-md">Trees Planted</p>
                 </div>
-                <div class="text-center p-10 rounded-md bg-white shadow-sm">
+                <div class="text-center p-10 rounded-md bg-white shadow-sm transition:all duration-300 ease-in-out hover:bg-[#82f4ac]  hover:scale-105 cursor-pointer">
                   <h1 class="text-xl font-bold text-green-800"><span>120+</span></h1>
                   <p class="text-gray-400 text-md">Communities Involved</p>
                 </div>
-                <div class="text-center p-10 rounded-md bg-white shadow-sm">
+                <div class="text-center p-10 rounded-md bg-white shadow-sm transition:all duration-300 ease-in-out hover:bg-[#82f4ac]  hover:scale-105 cursor-pointer">
                   <h1 class="text-xl font-bold text-green-800"><span>30+</span></h1>
                   <p class="text-gray-400 text-md">Countries Involved</p>
                 </div>
             </div>  
          </section>
          <!-- Our Impact End here-->
+         
 
 
 
@@ -197,17 +181,29 @@
                           
                           <input type="email" name="email" id="email" placeholder="Your Email Address" class="block w-full bg-white rounded-sm laceholder-gray-600 text-black p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-600"/>
                         
-                          <input type="number" name="num-of-tree" id="num-of-tree" placeholder="Number Of Tree" class="block w-full bg-white rounded-sm placeholder-black text-black p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"/>
+                          
+                         <div class="dropdown dropdown-start w-full ">
+                           <div tabindex="0" role="button" class="btn m-1 flex justify-between items-center border-2 focus:border-green-600"><p>Number Of Trees</p> <p>⬇️</p></div>
+                           <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box w-full p-2 text-black">
+                             <li><a>1 Tree - $5</a></li>
+                             <li><a>5 Tree - $25</a></li>
+                             <li><a>20 Tree - $100</a></li>
+                           </ul>
+                         </div>
+
+
                           
                           <div>
                              <button class="w-full  bg-[#FACC15] text-[#15803D] text-lg rounded-full px-4 py-1 
-                             transition duration-300 ease-in-out hover:bg-white hover:text-black hover:scale-105">Plant a Tree</button>
+                             transition duration-300 ease-in-out hover:bg-white hover:text-black hover:scale-101 cursor-pointer">Plant a Tree</button>
                           </div>
                       </form>
                 </div>
             </div>
         </section>
          <!-- plant a tree end here -->
+
+
     </main>
 
 
@@ -215,7 +211,6 @@
       <p>&copy;2025 Green Earth. All Rights Reserved.</p>
     </footer>
    
-   <!-- <script src="script.js"></script> -->
     <script src="script1.js"></script>
 </body>
 </html>
